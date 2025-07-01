@@ -1,5 +1,5 @@
 import css from './style.module.css'
-import type {Post} from "../../../widgets/PostList/mockData.ts";
+import type {Post} from "../../../widgets/PostList/lib/MOCK_DATA.ts";
 
 type Props = {
     postInfo: Post;

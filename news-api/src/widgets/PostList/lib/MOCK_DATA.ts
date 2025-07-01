@@ -5,7 +5,7 @@ export type Post = {
 };
 
 
-export const mockData: Post[] = [
+export const MOCK_DATA: Post[] = [
     {
         title: 'PRIDE and PROTEST',
         author: 'NIKKI PAYNE',
