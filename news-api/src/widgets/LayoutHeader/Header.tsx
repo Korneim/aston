@@ -1,3 +1,12 @@
+import { ThemeSwitcher } from '../../features';
+import css from './header.module.css';
+import { useTheme } from '../../shared';
+
 export function Header() {
-    return <div>это хедер</div>;
+    const { theme } = useTheme();
+    return (
+        <div className={theme === 'light' ? css.container : css.dark}>
+            <ThemeSwitcher />
+        </div>
+    );
 }

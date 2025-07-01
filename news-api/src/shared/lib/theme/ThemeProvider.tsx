@@ -11,8 +11,7 @@ export const ThemeProvider: FC<Props> = ({ children }) => {
     const toggleTheme = useCallback(() => {
         if (theme === 'light') {
             setTheme('dark');
-        }
-        setTheme('light');
+        } else setTheme('light');
     }, [theme]);
 
     return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>;

@@ -3,7 +3,7 @@ import { MainLayout, ThemeProvider } from '../shared';
 function App() {
     return (
         <ThemeProvider>
-            <MainLayout />;
+            <MainLayout />
         </ThemeProvider>
     );
 }
