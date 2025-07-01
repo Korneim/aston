@@ -1,7 +1,11 @@
-import { MainLayout } from '../shared';
+import { MainLayout, ThemeProvider } from '../shared';
 
 function App() {
-    return <MainLayout />;
+    return (
+        <ThemeProvider>
+            <MainLayout />;
+        </ThemeProvider>
+    );
 }
 
 export default App;
