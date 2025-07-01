@@ -1,1 +1,1 @@
-export { MOCK_DATA} from './MOCK_DATA'
+export { MOCK_DATA } from './MOCK_DATA';

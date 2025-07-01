@@ -1,6 +1,3 @@
-
 export function Header() {
-    return(
-        <div>это хедер</div>
-    )
+    return <div>это хедер</div>;
 }

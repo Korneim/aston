@@ -1,2 +1,2 @@
-export {Header} from './LayoutHeader'
-export {Footer} from './ LayoutFooter'
+export { Header } from './LayoutHeader';
+export { Footer } from './ LayoutFooter';

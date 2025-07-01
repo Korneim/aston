@@ -1,10 +1,7 @@
-import { MainLayout } from "../shared";
+import { MainLayout } from '../shared';
 
 function App() {
-
-  return (
-   <MainLayout/>
-  )
+    return <MainLayout />;
 }
 
-export default App
+export default App;

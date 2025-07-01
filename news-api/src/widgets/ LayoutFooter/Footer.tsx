@@ -1,5 +1,3 @@
-export function Footer(){
-    return(
-        <div>это футер</div>
-    )
+export function Footer() {
+    return <div>это футер</div>;
 }
