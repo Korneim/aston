@@ -1,9 +1,12 @@
-import type { FC } from 'react';
+import type { FC, ReactNode } from 'react';
 import { Footer, Header } from '../../widgets';
-import { PostList } from '../../widgets/PostList';
 import { useTheme } from '../lib';
 
-export const MainLayout: FC = () => {
+type Props = {
+    children: ReactNode;
+};
+
+export const MainLayout: FC<Props> = ({ children }) => {
     const { theme } = useTheme();
 
     return (
@@ -11,7 +14,7 @@ export const MainLayout: FC = () => {
             style={{ background: theme === 'light' ? 'white' : 'black', color: theme === 'light' ? 'black' : 'white' }}
         >
             <Header />
-            <PostList />
+            {children}
             <Footer />
         </div>
     );
