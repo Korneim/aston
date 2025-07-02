@@ -1,5 +1,5 @@
 import { ThemeSwitcher } from '../../features';
-import css from './header.module.css';
+import css from './Header.module.css';
 import { useTheme } from '../../shared';
 
 export function Header() {
