@@ -8,7 +8,13 @@ export const ModalTriggerButton = () => {
         <>
             <Button onClick={() => setIsOpen(true)} text="О проекте" />
             <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-                <div>Данный проект был создан в рамках обучения на платформе компании Aston</div>
+                <Modal.Header>
+                    <h2>Это футер модального окна</h2>
+                </Modal.Header>
+                <Modal.Body>
+                    <div>А это боди. Данный проект был создан в рамках обучения на платформе компании Aston</div>
+                </Modal.Body>
+                <Modal.Footer onClose={() => setIsOpen(false)}>Это футер c кнопкой</Modal.Footer>
             </Modal>
         </>
     );
