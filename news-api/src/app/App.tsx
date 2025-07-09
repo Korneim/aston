@@ -4,7 +4,7 @@ import { Footer, Header } from '../widgets';
 import { useCallback, useState } from 'react';
 import { withLoading } from '../shared/lib/hoc/withLoading.tsx';
 import { CommentList } from '../widgets/CommentList';
-import { PostLengthFilter } from '../features/PostLengthFilter/ui';
+import { PostLengthFilter } from '../features';
 import { MOCK_DATA, type Post } from '../mock';
 
 function App() {

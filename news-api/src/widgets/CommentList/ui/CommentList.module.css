@@ -1,26 +1,26 @@
 .display {
-  display: flex;
-  width: 1200px;
-  height: 150px;
-  align-items: center;
-  background-color: rgba(186, 186, 186, 0.1);
-  border: 3px solid rgba(211, 2, 2);
-  border-radius: 10px;
+    display: flex;
+    width: 1200px;
+    height: 150px;
+    align-items: center;
+    background-color: rgba(186, 186, 186, 0.1);
+    border: 3px solid rgba(211, 2, 2);
+    border-radius: 10px;
 }
 
 .hidden {
-  display: none;
+    display: none;
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-top: 10px;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+    align-items: center;
 }
 
 .button {
-  margin-bottom: 20px;
-  width: 300px;
+    margin-bottom: 20px;
+    width: 300px;
 }
