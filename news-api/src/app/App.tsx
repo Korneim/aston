@@ -1,29 +1,36 @@
-import { MainLayout, ThemeProvider } from '../shared';
+import { MainLayout, ThemeProvider, withLoading } from '../shared';
 import { PostList } from '../widgets/PostList';
-import { Footer, Header } from '../widgets';
-import { useCallback, useState } from 'react';
-import { withLoading } from '../shared/lib/hoc/withLoading.tsx';
-import { CommentList } from '../widgets/CommentList';
+import { CommentList, Footer, Header } from '../widgets';
+import { useCallback, useEffect, useState } from 'react';
 import { PostLengthFilter } from '../features';
-import { MOCK_DATA, type Post } from '../mock';
+import { type Post } from '../mock';
+import { useGetPostsQuery } from '../entities';
 
 function App() {
-    const [isLoading, setLoading] = useState(true);
-    const [currentPosts, setCurrentPosts] = useState(MOCK_DATA);
+    const { data: posts = [], isLoading } = useGetPostsQuery({
+        limit: 11,
+        page: 1,
+    });
 
-    setTimeout(setLoading, 1000, false);
+    const [filteredPosts, setFilteredPosts] = useState<Post[]>(posts);
     const PostListWithLoading = withLoading(PostList);
 
-    const handleChangePosts = useCallback((posts: Post[]) => {
-        setCurrentPosts(posts);
+    useEffect(() => {
+        setFilteredPosts(posts);
+    }, [posts]);
+
+    const handleChangePosts = useCallback((newPosts: Post[]) => {
+        setFilteredPosts(newPosts);
     }, []);
+
+    console.log(posts);
 
     return (
         <ThemeProvider>
             <MainLayout>
                 <Header />
-                <PostLengthFilter posts={MOCK_DATA} handleChangePosts={handleChangePosts} />
-                <PostListWithLoading isLoading={isLoading} posts={currentPosts} />
+                <PostLengthFilter posts={posts} handleChangePosts={handleChangePosts} />
+                <PostListWithLoading isLoading={isLoading} posts={filteredPosts} />
                 <CommentList />
                 <Footer />
             </MainLayout>
