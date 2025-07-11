@@ -1,6 +1,6 @@
 import { PostCard } from '../../entities';
-import { MOCK_DATA } from './lib';
-import css from './post-list.module.css';
+import { MOCK_DATA } from '../../mock';
+import css from './PostList.module.css';
 
 export function PostList() {
     return (

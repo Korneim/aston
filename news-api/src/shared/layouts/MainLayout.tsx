@@ -1,14 +1,22 @@
-import type { FC } from 'react';
-import { Header } from '../../widgets';
-import { Footer } from '../../widgets';
-import { PostList } from '../../widgets/PostList';
+import type { FC, ReactNode } from 'react';
+import { useTheme } from '../lib';
 
-export const MainLayout: FC = () => {
+type Props = {
+    header?: ReactNode;
+    children: ReactNode;
+    footer?: ReactNode;
+};
+
+export const MainLayout: FC<Props> = ({ children, header, footer }) => {
+    const { theme } = useTheme();
+
     return (
-        <>
-            <Header />
-            <PostList />
-            <Footer />
-        </>
+        <div
+            style={{ background: theme === 'light' ? 'white' : 'black', color: theme === 'light' ? 'black' : 'white' }}
+        >
+            {header}
+            {children}
+            {footer}
+        </div>
     );
 };
