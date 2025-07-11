@@ -1,11 +1,15 @@
 import { PostCard } from '../../entities';
-import { MOCK_DATA } from '../../mock';
 import css from './PostList.module.css';
+import type { Post } from '../../mock';
 
-export function PostList() {
+type Props = {
+    posts: Post[];
+};
+
+export function PostList({ posts }: Props) {
     return (
         <div className={css.list}>
-            {MOCK_DATA.map((el) => (
+            {posts.map((el) => (
                 <PostCard key={el.title} postInfo={el} />
             ))}
         </div>

@@ -1,7 +1,10 @@
-import type { ReactNode } from 'react';
+import * as React from 'react';
+import { type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import css from './Modal.module.css';
-import { Button } from '../Button';
+import { Header } from './Header/Header.tsx';
+import { Footer } from './Footer/Footer.tsx';
+import { Body } from './Body/Body.tsx';
 
 type Props = {
     isOpen: boolean;
@@ -10,16 +13,24 @@ type Props = {
 };
 
 export function Modal({ isOpen, onClose, children }: Props) {
+    const handleClose = (event: React.MouseEvent) => {
+        event.stopPropagation();
+    };
+
     if (!isOpen) {
         return null;
     }
+
     return createPortal(
         <div className={!isOpen ? css.modal : css['modal-open']} onClick={onClose}>
-            <div className={css.content}>
+            <div className={css.content} onClick={handleClose}>
                 {children}
-                <Button onClick={onClose} className={css.close} text="Закрыть" />
             </div>
         </div>,
         document.body
     );
 }
+
+Modal.Header = Header;
+Modal.Footer = Footer;
+Modal.Body = Body;
