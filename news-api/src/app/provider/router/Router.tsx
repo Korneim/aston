@@ -4,8 +4,9 @@ import { routes } from './lib/routes.ts';
 import { RouterProvider } from 'react-router/dom';
 import App from '../../App.tsx';
 import { AlbumsPage, Posts, UsersPage } from '../../../pages';
+import { UserPage } from '../../../pages/user/ui/UserPage.tsx';
 
-const { root, users, userTodos, userAlbums, post, posts, userPosts, albumPhotos } = routes;
+const { root, users, userTodos, userAlbums, post, posts, userPosts, albumPhotos, user } = routes;
 
 export const Router: FC = () => {
     const router = createBrowserRouter([
@@ -19,6 +20,10 @@ export const Router: FC = () => {
                 {
                     path: users,
                     element: <UsersPage />,
+                },
+                {
+                    path: user,
+                    element: <UserPage />,
                 },
 
                 {
