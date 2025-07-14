@@ -1,23 +1,16 @@
-import type { Post } from '../../../mock';
-import { type ChangeEvent, useState } from 'react';
-import { filterByLength } from '../lib';
 import css from './PostLengthFilter.module.css';
+import type { ChangeEvent } from 'react';
 
 type Props = {
-    posts: Post[];
-    handleChangePosts: (posts: Post[]) => void;
+    titleLength: number | null;
+    onTitleLengthChange: (length: number | null) => void;
 };
 
-export function PostLengthFilter({ posts, handleChangePosts }: Props) {
-    const [titleLength, setTitleLength] = useState<number | null>(null);
-
+export function PostLengthFilter({ titleLength, onTitleLengthChange }: Props) {
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const newLength = Number(event.target.value) || null;
-        setTitleLength(newLength);
-        const filteredPosts = filterByLength(posts, newLength);
-        handleChangePosts(filteredPosts);
+        onTitleLengthChange(newLength);
     };
-
     return (
         <div className={css.block}>
             Фильтр

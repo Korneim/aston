@@ -2,7 +2,10 @@ import { useGetUsersQuery } from '../api';
 import css from './Users.module.css';
 
 export function Users() {
-    const { data: user = [] } = useGetUsersQuery();
+    const { data: user = [], isLoading } = useGetUsersQuery();
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <div className={css.wrapper}>

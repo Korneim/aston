@@ -1,23 +1,19 @@
 import { MainLayout, ThemeProvider, withLoading } from '../shared';
 import { PostList } from '../widgets/PostList';
 import { CommentList, Footer, Header } from '../widgets';
-import { useCallback, useEffect, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { PostLengthFilter, usePosts } from '../features';
-import { type Post } from '../mock';
 import { UserTabs } from '../widgets/UserTabs/UserTabs.tsx';
+import { filterByLength } from '../features/PostLengthFilter/lib';
 
 function App() {
     const { data: posts = [], isLoading } = usePosts();
-    const [filteredPosts, setFilteredPosts] = useState<Post[]>(posts);
+    const [titleLengthFilter, setTitleLengthFilter] = useState<number | null>(null);
     const PostListWithLoading = withLoading(PostList);
 
-    useEffect(() => {
-        setFilteredPosts(posts);
-    }, [posts]);
-
-    const handleChangePosts = useCallback((newPosts: Post[]) => {
-        setFilteredPosts(newPosts);
-    }, []);
+    const filteredPosts = useMemo(() => {
+        return titleLengthFilter ? filterByLength(posts, titleLengthFilter) : posts;
+    }, [posts, titleLengthFilter]);
 
     console.log(posts);
 
@@ -26,7 +22,7 @@ function App() {
             <MainLayout>
                 <Header />
                 <UserTabs />
-                <PostLengthFilter posts={posts} handleChangePosts={handleChangePosts} />
+                <PostLengthFilter titleLength={titleLengthFilter} onTitleLengthChange={setTitleLengthFilter} />
                 <PostListWithLoading isLoading={isLoading} posts={filteredPosts} />
                 <CommentList />
                 <Footer />
