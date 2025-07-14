@@ -1,0 +1,13 @@
+.image {
+  width: 10%;
+  height: 10%;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 1px red dashed;
+  border-radius: 10px;
+}

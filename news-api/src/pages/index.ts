@@ -1,3 +1,4 @@
 export { NoMatchPage } from './noMatch';
 export { Posts } from './posts';
-export { Users } from './users';
+export { UsersPage } from './users';
+export { AlbumsPage } from './albums';

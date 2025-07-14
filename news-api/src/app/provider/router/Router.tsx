@@ -3,7 +3,7 @@ import type { FC } from 'react';
 import { routes } from './lib/routes.ts';
 import { RouterProvider } from 'react-router/dom';
 import App from '../../App.tsx';
-import { Posts, Users } from '../../../pages';
+import { AlbumsPage, Posts, UsersPage } from '../../../pages';
 
 const { root, users, userTodos, userAlbums, post, posts, userPosts, albumPhotos } = routes;
 
@@ -18,7 +18,7 @@ export const Router: FC = () => {
                 },
                 {
                     path: users,
-                    element: <Users />,
+                    element: <UsersPage />,
                 },
 
                 {
@@ -48,7 +48,7 @@ export const Router: FC = () => {
 
                 {
                     path: albumPhotos,
-                    element: <div>albumPhotos</div>,
+                    element: <AlbumsPage />,
                 },
             ],
         },
