@@ -1,13 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { userSlice } from '../../entities/users/model/slice/userSlice.ts';
 import { baseApi } from '../../shared';
-import { postApi } from '../../entities';
+import { postSlice } from '../../entities/post/model/slice/postSlice.ts';
 
 export const store = configureStore({
     reducer: {
         [baseApi.reducerPath]: baseApi.reducer,
         users: userSlice.reducer,
-        posts: postApi.reducer,
+        posts: postSlice.reducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(baseApi.middleware),
 });

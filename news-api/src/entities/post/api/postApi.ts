@@ -1,6 +1,6 @@
 import { baseApi } from '../../../shared';
 
-interface Post {
+export interface Post {
     id: number;
     userId: number;
     title: string;
@@ -17,6 +17,19 @@ export const postApi = baseApi.injectEndpoints({
                     _page: page,
                 },
             }),
+            providesTags: ['Post'],
+        }),
+        getPostByID: builder.query<Post, number>({
+            query: (id) => `posts/${id}`,
+            providesTags: ['Post'],
+        }),
+        updatePost: builder.mutation<Post, Partial<Post>>({
+            query: (id, ...data) => ({
+                url: `posts/${id}`,
+                method: 'PATCH',
+                body: data,
+            }),
+            invalidatesTags: ['Post'],
         }),
     }),
 });

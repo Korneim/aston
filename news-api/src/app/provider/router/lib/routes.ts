@@ -2,6 +2,7 @@ export const routes = {
     root: '/',
     posts: '/posts',
     post: '/post/:id',
+    todos: '/todos',
     users: '/users',
     user: '/users/:id',
     userAlbums: '/users/:id/albums',

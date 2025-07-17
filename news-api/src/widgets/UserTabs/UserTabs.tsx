@@ -3,7 +3,7 @@ import { routes } from '../../app/provider/router/lib/routes.ts';
 import css from './UserTabs.module.css';
 
 export function UserTabs() {
-    const { users, posts, root } = routes;
+    const { users, posts, root, todos } = routes;
     return (
         <div style={{ padding: '20px', display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
             <NavLink to={users} className={css.tabs}>
@@ -17,6 +17,9 @@ export function UserTabs() {
             </NavLink>
             <NavLink to={root} className={css.tabs}>
                 Главная
+            </NavLink>
+            <NavLink to={todos} className={css.tabs}>
+                Лист задач
             </NavLink>
         </div>
     );
