@@ -3,9 +3,8 @@ import type { FC } from 'react';
 import { routes } from './lib/routes.ts';
 import { RouterProvider } from 'react-router/dom';
 import App from '../../App.tsx';
-import { AlbumsPage, Posts, UsersPage } from '../../../pages';
-import { UserPage } from '../../../pages/user/ui/UserPage.tsx';
-import { Todos } from '../../../entities/todos/ui/Todos.tsx';
+import { AlbumsPage, Posts, UserPage, UsersPage } from '../../../pages';
+import { Todos } from '../../../entities';
 
 const { root, users, userTodos, userAlbums, post, posts, userPosts, albumPhotos, user, todos } = routes;
 

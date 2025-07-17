@@ -2,7 +2,7 @@ import css from './Users.module.css';
 import { useNavigate } from 'react-router';
 import { Button } from '../../../shared';
 import { useSelector } from 'react-redux';
-import { selectAllUsers } from '../model/slice/userSlice.ts';
+import { selectAllUsers } from '../model';
 import { useGetUsersQuery } from '../api';
 
 export function Users() {

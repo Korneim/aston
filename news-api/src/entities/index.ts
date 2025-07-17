@@ -1,4 +1,3 @@
-export { PostCard } from './post';
-export { postApi } from './post';
-export { useGetPostsQuery } from './post';
+export { useGetPostsQuery, postApi, PostCard } from './post';
 export { useGetUsersQuery, Users } from './users';
+export { useGetTodosQuery, Todos } from './todos';

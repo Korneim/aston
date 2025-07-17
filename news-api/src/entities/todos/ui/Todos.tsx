@@ -1,4 +1,4 @@
-import { useGetTodosQuery } from '../api/todosApi.ts';
+import { useGetTodosQuery } from '../api';
 import css from './Todos.module.css';
 import * as React from 'react';
 import { useState } from 'react';
