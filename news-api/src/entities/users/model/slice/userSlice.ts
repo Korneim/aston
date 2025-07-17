@@ -2,7 +2,9 @@ import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
 import { type User, userApi } from '../../api/userApi.ts';
 import type { RootState } from '../../../../app/provider/store.ts';
 
-const usersAdapter = createEntityAdapter<User>({});
+const usersAdapter = createEntityAdapter<User>({
+    selectId: (user) => user.id,
+});
 
 export const userSlice = createSlice({
     name: 'usersGet',
@@ -14,7 +16,7 @@ export const userSlice = createSlice({
             usersAdapter.setAll(state, action.payload);
         });
         builder.addMatcher(userApi.endpoints.getUserByID.matchFulfilled, (state, action) => {
-            usersAdapter.upsertMany(state, action.payload);
+            usersAdapter.upsertOne(state, action.payload);
         });
     },
 });

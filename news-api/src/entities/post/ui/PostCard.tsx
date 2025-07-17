@@ -1,5 +1,5 @@
 import css from './PostCard.module.css';
-import type { Post } from '../../../mock';
+import type { Post } from '../api/postApi.ts';
 
 type Props = {
     postInfo: Post;

@@ -6,7 +6,7 @@ import App from '../../App.tsx';
 import { AlbumsPage, Posts, UserPage, UsersPage } from '../../../pages';
 import { Todos } from '../../../entities';
 
-const { root, users, userTodos, userAlbums, post, posts, userPosts, albumPhotos, user, todos } = routes;
+const { root, users, userTodos, userAlbums, post, posts, userPosts, albumPhotos, user, todos, albums } = routes;
 
 export const Router: FC = () => {
     const router = createBrowserRouter([
@@ -38,6 +38,10 @@ export const Router: FC = () => {
                 {
                     path: todos,
                     element: <Todos />,
+                },
+                {
+                    path: albums,
+                    element: <AlbumsPage />,
                 },
 
                 {

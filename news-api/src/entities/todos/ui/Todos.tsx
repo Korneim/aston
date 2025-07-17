@@ -16,7 +16,7 @@ export function Todos() {
         const value = e.target.value;
         setFilters((prev) => ({
             ...prev,
-            userId: value === '' ? undefined : Number(value),
+            userId: value ? Number(value) : undefined,
         }));
     };
 
@@ -24,7 +24,7 @@ export function Todos() {
         const value = e.target.value;
         setFilters((prev) => ({
             ...prev,
-            completed: value === '' ? undefined : value === 'true',
+            completed: value ? value === 'true' : undefined,
         }));
     };
 
