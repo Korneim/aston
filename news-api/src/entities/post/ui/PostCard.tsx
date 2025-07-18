@@ -1,7 +1,7 @@
 import css from './PostCard.module.css';
-import type { Post } from '../api/postApi.ts';
+import type { Post } from '../api';
 import { CommentList } from '../../../widgets';
-import { useGetCommentIDQuery } from '../../comments/api/commentsApi.ts';
+import { useGetCommentIDQuery } from '../../comments';
 
 type Props = {
     postInfo: Post;
@@ -10,7 +10,6 @@ type Props = {
 export function PostCard({ postInfo }: Props) {
     const { userId, title, body, id } = postInfo;
     const { data, isLoading } = useGetCommentIDQuery(Number(id));
-    console.log(data, isLoading);
 
     return (
         <div className={css.post}>

@@ -6,3 +6,9 @@
     gap: 10px;
     min-width: 520px;
 }
+
+.loading {
+    font-size: 1.2rem;
+    color: #6c757d;
+    padding: 2rem;
+}

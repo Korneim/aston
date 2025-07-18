@@ -1,0 +1,1 @@
+export { useGetCommentIDQuery } from './api';

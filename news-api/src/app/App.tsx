@@ -1,6 +1,6 @@
 import { MainLayout, ThemeProvider } from '../shared';
-import { Footer, Header } from '../widgets';
-import { UserTabs } from '../widgets/UserTabs/UserTabs.tsx';
+import { Footer, Header, UserTabs } from '../widgets';
+import { MainPage } from '../pages';
 
 function App() {
     return (
@@ -8,6 +8,7 @@ function App() {
             <MainLayout>
                 <Header />
                 <UserTabs />
+                <MainPage />
                 <Footer />
             </MainLayout>
         </ThemeProvider>

@@ -18,6 +18,7 @@ export const MainLayout: FC<Props> = ({ children, header, footer }) => {
                 display: 'flex',
                 justifyContent: 'center',
                 flexDirection: 'column',
+                height: '100%',
             }}
         >
             {header}

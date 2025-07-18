@@ -1,7 +1,9 @@
 body {
     display: flex;
     min-width: 320px;
-    min-height: 100vh;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
 button {
@@ -20,5 +22,5 @@ button:hover {
 }
 
 #root {
-    min-width: 100vw;
+    width: 100vw;
 }

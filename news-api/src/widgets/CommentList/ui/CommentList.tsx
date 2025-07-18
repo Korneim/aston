@@ -15,7 +15,7 @@ export function CommentList({ comments, isLoading }: Props) {
         setShowComments(!showComments);
     }, [showComments]);
     if (isLoading) {
-        return <div>Loading...</div>;
+        return <div className={css.loading}>Loading...</div>;
     }
 
     return (

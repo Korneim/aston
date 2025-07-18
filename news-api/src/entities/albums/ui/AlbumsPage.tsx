@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useState } from 'react';
 import css from './AlbumsPage.module.css';
-import { useGetAlbumsQuery } from '../api/albumsApi.ts';
+import { useGetAlbumsQuery } from '../api';
 import { useNavigate } from 'react-router';
 
 export function Albums() {

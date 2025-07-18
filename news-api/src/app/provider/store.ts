@@ -1,7 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { userSlice } from '../../entities/users/model/slice/userSlice.ts';
+import { postSlice, userSlice } from '../../entities';
 import { baseApi } from '../../shared';
-import { postSlice } from '../../entities/post/model/slice/postSlice.ts';
 
 export const store = configureStore({
     reducer: {
