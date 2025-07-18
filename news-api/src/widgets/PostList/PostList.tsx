@@ -1,6 +1,6 @@
 import { PostCard } from '../../entities';
 import css from './PostList.module.css';
-import type { Post } from '../../mock';
+import type { Post } from '../../entities/post/api/postApi.ts';
 
 type Props = {
     posts: Post[];

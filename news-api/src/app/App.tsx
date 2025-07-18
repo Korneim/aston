@@ -1,5 +1,5 @@
 import { MainLayout, ThemeProvider } from '../shared';
-import { CommentList, Footer, Header } from '../widgets';
+import { Footer, Header } from '../widgets';
 import { UserTabs } from '../widgets/UserTabs/UserTabs.tsx';
 
 function App() {
@@ -8,7 +8,6 @@ function App() {
             <MainLayout>
                 <Header />
                 <UserTabs />
-                <CommentList />
                 <Footer />
             </MainLayout>
         </ThemeProvider>

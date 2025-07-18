@@ -1,7 +1,8 @@
 .post {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 2px solid #8f0606;
-    width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #8f0606;
+  width: 80%;
+  padding: 2rem;
 }
