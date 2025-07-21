@@ -1,30 +1,32 @@
 import { useGetTodosQuery } from '../api';
 import css from './Todos.module.css';
-import { useState } from 'react';
+import * as React from 'react';
+import { type JSX, useState } from 'react';
+import type { FilterTodos } from '../model';
 
-export function Todos() {
-    const [filters, setFilters] = useState<{
-        userId?: number;
-        completed?: boolean;
-        limit: number;
-    }>({ limit: 100 });
+export function Todos(): JSX.Element {
+    const [filters, setFilters] = useState<FilterTodos>({ limit: 100 });
 
     const { data: todos = [], isLoading } = useGetTodosQuery(filters);
 
-    const handleUserIdChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleUserIdChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         const value = e.target.value;
-        setFilters((prev) => ({
-            ...prev,
-            userId: value ? Number(value) : undefined,
-        }));
+        setFilters(
+            (prev: FilterTodos): FilterTodos => ({
+                ...prev,
+                userId: value ? Number(value) : undefined,
+            })
+        );
     };
 
-    const handleCompletedChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const handleCompletedChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
         const value = e.target.value;
-        setFilters((prev) => ({
-            ...prev,
-            completed: value ? value === 'true' : undefined,
-        }));
+        setFilters(
+            (prev: FilterTodos): FilterTodos => ({
+                ...prev,
+                completed: value ? value === 'true' : undefined,
+            })
+        );
     };
 
     if (isLoading) {

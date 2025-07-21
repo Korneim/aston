@@ -1,23 +1,9 @@
 import { baseApi } from '../../../shared';
-
-export interface Todos {
-    userId: number;
-    id: number;
-    title: string;
-    completed: boolean;
-}
+import type { FilterTodos, Todos } from '../model';
 
 export const todosApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
-        getTodos: builder.query<
-            Todos[],
-            {
-                limit?: number;
-                userId?: number;
-                completed?: boolean;
-                page?: number;
-            }
-        >({
+        getTodos: builder.query<Todos[], FilterTodos>({
             query: (params) => ({
                 url: 'todos',
                 params: {

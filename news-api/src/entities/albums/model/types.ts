@@ -24,12 +24,6 @@ export interface Photos {
     thumbnailUrl: string;
 }
 
-export interface AlbumsFilters {
-    albumLimit?: number;
-    userId?: number;
-    page?: number;
-}
-
 export interface PhotosFilters {
     limit?: number;
     id?: number;
