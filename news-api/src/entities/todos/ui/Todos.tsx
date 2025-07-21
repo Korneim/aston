@@ -1,6 +1,5 @@
 import { useGetTodosQuery } from '../api';
 import css from './Todos.module.css';
-import * as React from 'react';
 import { useState } from 'react';
 
 export function Todos() {
@@ -29,16 +28,19 @@ export function Todos() {
     };
 
     if (isLoading) {
-        return <div>Loading...</div>;
+        return <div className={css.loadingContainer}>Загрузка задач...</div>;
     }
 
     return (
-        <div className={css.wrapper}>
-            <div className={css.filters}>
-                <div>
-                    <label>Фильтр по ID пользователя: </label>
+        <div className={css.container}>
+            <h1 className={css.header}>Управление задачами</h1>
+
+            <div className={css.filterPanel}>
+                <div className={css.filterGroup}>
+                    <label className={css.filterLabel}>ID пользователя</label>
                     <input
                         type="number"
+                        className={css.filterInput}
                         value={filters.userId || ''}
                         onChange={handleUserIdChange}
                         placeholder="Все пользователи"
@@ -46,9 +48,10 @@ export function Todos() {
                     />
                 </div>
 
-                <div>
-                    <label>Фильтр по статусу: </label>
+                <div className={css.filterGroup}>
+                    <label className={css.filterLabel}>Статус задачи</label>
                     <select
+                        className={css.filterSelect}
                         value={filters.completed === undefined ? '' : String(filters.completed)}
                         onChange={handleCompletedChange}
                     >
@@ -59,20 +62,25 @@ export function Todos() {
                 </div>
             </div>
 
-            <h3>Список задач пользователей:</h3>
-            {todos.map((todo) => (
-                <div key={todo.id} className={css.content}>
-                    <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
-                        <div>ID пользователя:{todo.userId}</div>
-                        <div className={css.name}> {todo.title}</div>
-                        {todo.completed ? (
-                            <div style={{ color: 'green' }}>Задача выполнена</div>
-                        ) : (
-                            <div style={{ color: 'red' }}>Задача не выполнена</div>
-                        )}
-                    </div>
+            <div className={css.todosContainer}>
+                <h2 className={css.subheader}>Список задач</h2>
+                <div className={css.todosList}>
+                    {todos.map((todo) => (
+                        <div key={todo.id} className={css.todoCard}>
+                            <div className={css.todoHeader}>
+                                <span className={css.userId}>User #{todo.userId}</span>
+                                <span className={todo.completed ? css.statusCompleted : css.statusPending}>
+                                    {todo.completed ? '✓ Выполнено' : '✗ В процессе'}
+                                </span>
+                            </div>
+                            <p className={css.todoTitle}>{todo.title}</p>
+                            <div className={css.todoMeta}>
+                                <span>ID задачи: {todo.id}</span>
+                            </div>
+                        </div>
+                    ))}
                 </div>
-            ))}
+            </div>
         </div>
     );
 }
