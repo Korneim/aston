@@ -1,20 +1,17 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { type JSX, useState } from 'react';
 import css from './AlbumsPage.module.css';
 import { useGetAlbumsQuery } from '../api';
 import { useNavigate } from 'react-router';
+import type { Album, AlbumsFilters } from '../model';
 
-export function Albums() {
-    const [albumsFilters, setAlbumsFiltersFilters] = useState<{
-        userId?: number;
-        completed?: boolean;
-        limit: number;
-    }>({ limit: 100 });
+export function Albums(): JSX.Element {
+    const [albumsFilters, setAlbumsFiltersFilters] = useState<AlbumsFilters>({ limit: 100 });
 
     const { data: albums = [], isLoading } = useGetAlbumsQuery(albumsFilters);
 
-    const handleUserIdChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const value = e.target.value;
+    const handleUserIdChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+        const value: string = e.target.value;
         setAlbumsFiltersFilters((prev) => ({
             ...prev,
             userId: value ? Number(value) : undefined,
@@ -43,7 +40,7 @@ export function Albums() {
             </div>
 
             <h3>Список альбомов пользователей:</h3>
-            {albums.map((album) => (
+            {albums.map((album: Album) => (
                 <div
                     key={album.id}
                     className={css.content}
