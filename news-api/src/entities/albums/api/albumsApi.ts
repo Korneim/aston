@@ -1,29 +1,9 @@
 import { baseApi } from '../../../shared';
-
-export interface Albums {
-    userId: number;
-    id: number;
-    title: string;
-}
-
-export interface Photos {
-    albumId: number;
-    id: number;
-    title: string;
-    url: string;
-    thumbnailUrl: string;
-}
+import type { Albums, AlbumsFilters, Photos, PhotosFilters } from '../model';
 
 export const albumsApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
-        getAlbums: builder.query<
-            Albums[],
-            {
-                limit?: number;
-                userId?: number;
-                page?: number;
-            }
-        >({
+        getAlbums: builder.query<Albums[], AlbumsFilters>({
             query: (params) => ({
                 url: 'albums',
                 params: {
@@ -34,13 +14,7 @@ export const albumsApi = baseApi.injectEndpoints({
             }),
             providesTags: ['Album'],
         }),
-        getAlbumsPhotos: builder.query<
-            Photos[],
-            {
-                limit?: number;
-                id?: number;
-            }
-        >({
+        getAlbumsPhotos: builder.query<Photos[], PhotosFilters>({
             query: (params) => ({
                 url: `albums/${params.id}/photos`,
                 params: {
