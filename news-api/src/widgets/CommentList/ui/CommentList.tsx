@@ -1,17 +1,17 @@
 import { Button } from '../../../shared';
-import { useCallback, useState } from 'react';
+import { type JSX, useCallback, useState } from 'react';
 import css from './CommentList.module.css';
-import type { Comments } from '../../../entities/comments/api/commentsApi.ts';
+import type { Comments } from '../../../entities';
 
 interface Props {
     comments: Comments[];
     isLoading: boolean;
 }
 
-export function CommentList({ comments, isLoading }: Props) {
+export function CommentList({ comments, isLoading }: Props): JSX.Element {
     const [showComments, setShowComments] = useState(false);
 
-    const handleClick = useCallback(() => {
+    const handleClick = useCallback((): void => {
         setShowComments(!showComments);
     }, [showComments]);
     if (isLoading) {

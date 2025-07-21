@@ -1,8 +1,9 @@
 import { NavLink } from 'react-router';
 import { routes } from '../../app/provider/router/lib/routes.ts';
 import css from './UserTabs.module.css';
+import type { JSX } from 'react';
 
-export function UserTabs() {
+export function UserTabs(): JSX.Element {
     const { users, posts, root, todos, albums } = routes;
     return (
         <div style={{ padding: '20px', display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>

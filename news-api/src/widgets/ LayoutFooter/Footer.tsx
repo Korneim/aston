@@ -1,7 +1,8 @@
 import css from './Footer.module.css';
 import { FaGithub } from 'react-icons/fa';
+import type { JSX } from 'react';
 
-export function Footer() {
+export function Footer(): JSX.Element {
     const currentYear = new Date().getFullYear();
 
     return (

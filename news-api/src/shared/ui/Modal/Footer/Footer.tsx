@@ -1,13 +1,12 @@
-import type { ReactNode } from 'react';
+import type { JSX, PropsWithChildren } from 'react';
 import css from '../Modal.module.css';
 import { Button } from '../../Button';
 
 type Props = {
-    children?: ReactNode;
     onClose?: () => void;
 };
 
-export function Footer({ children, onClose }: Props) {
+export function Footer({ children, onClose }: PropsWithChildren<Props>): JSX.Element {
     return (
         <div className={css.footer}>
             {children}
