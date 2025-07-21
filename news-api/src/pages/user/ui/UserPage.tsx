@@ -2,6 +2,8 @@ import { Link, useParams } from 'react-router';
 import { useGetUserByIDQuery } from '../../../entities';
 import { type MapUser, mapUserInfo } from '../../../entities/users/lib/mapUserInfo.ts';
 import css from './UserPage.module.css';
+import { ItemList } from '../../../shared/ui/ItemList/ItemList.tsx';
+import type { UserField } from '../model';
 
 const userFieldsRu: Record<string, string> = {
     id: 'ID',
@@ -23,6 +25,10 @@ export function UserPage() {
         return <div className={css.loading}>Loading...</div>;
     }
     const mappedData: MapUser = mapUserInfo(data);
+    const userItems = Object.entries(mappedData).map(([key, value]) => ({
+        label: userFieldsRu[key as keyof typeof userFieldsRu] ?? key,
+        value: String(value),
+    }));
 
     return (
         <div className={css.container}>
@@ -30,13 +36,16 @@ export function UserPage() {
 
             <div className={css.content}>
                 <div className={css.userInfo}>
-                    {data &&
-                        Object.keys(mappedData).map((key) => (
-                            <div key={key} className={css.infoRow}>
-                                <div className={css.infoLabel}>{userFieldsRu[key]}</div>
-                                <div className={css.infoValue}>{mappedData[key as keyof MapUser]}</div>
+                    <ItemList<UserField>
+                        items={userItems}
+                        keyExtractor={(item) => item.label}
+                        renderItem={(item) => (
+                            <div className={css.infoRow}>
+                                <div className={css.infoLabel}>{item.label}</div>
+                                <div className={css.infoValue}>{item.value}</div>
                             </div>
-                        ))}
+                        )}
+                    />
                 </div>
 
                 <div className={css.links}>
