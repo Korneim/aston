@@ -1,24 +1,10 @@
 import { baseApi } from '../../../shared';
-
-export interface Comments {
-    postId: number;
-    id: number;
-    name: string;
-    body: string;
-    email: string;
-}
+import type { Comments } from '../model';
+import type { Filters } from '../model/types.ts';
 
 export const commentsApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
-        getComments: builder.query<
-            Comments[],
-            {
-                limit?: number;
-                userId?: number;
-                completed?: boolean;
-                page?: number;
-            }
-        >({
+        getComments: builder.query<Comments[], Filters>({
             query: (params) => ({
                 url: 'comments',
                 params: {
