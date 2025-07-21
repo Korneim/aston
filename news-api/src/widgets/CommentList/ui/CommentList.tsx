@@ -4,7 +4,7 @@ import css from './CommentList.module.css';
 import type { Comments } from '../../../entities/comments/api/commentsApi.ts';
 
 interface Props {
-    comments: Comments[]; // Переименовал data в comments для ясности
+    comments: Comments[];
     isLoading: boolean;
 }
 

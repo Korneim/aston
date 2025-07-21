@@ -6,6 +6,14 @@ export interface Albums {
     title: string;
 }
 
+export interface Photos {
+    albumId: number;
+    id: number;
+    title: string;
+    url: string;
+    thumbnailUrl: string;
+}
+
 export const albumsApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
         getAlbums: builder.query<
@@ -26,8 +34,24 @@ export const albumsApi = baseApi.injectEndpoints({
             }),
             providesTags: ['Album'],
         }),
+        getAlbumsPhotos: builder.query<
+            Photos[],
+            {
+                limit?: number;
+                id?: number;
+            }
+        >({
+            query: (params) => ({
+                url: `albums/${params.id}/photos`,
+                params: {
+                    _limit: params.limit,
+                    userId: params.id,
+                },
+            }),
+            providesTags: ['Album'],
+        }),
         getAlbumByID: builder.query<Albums, number>({
-            query: (id) => `todos/${id}`,
+            query: (id) => `albums/${id}`,
             providesTags: ['Album'],
         }),
         updateAlbum: builder.mutation<Albums, Partial<Albums>>({
@@ -41,4 +65,4 @@ export const albumsApi = baseApi.injectEndpoints({
     }),
 });
 
-export const { useGetAlbumsQuery } = albumsApi;
+export const { useGetAlbumsQuery, useGetAlbumsPhotosQuery } = albumsApi;
