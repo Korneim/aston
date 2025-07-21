@@ -12,7 +12,13 @@ export const MainLayout: FC<Props> = ({ children, header, footer }) => {
 
     return (
         <div
-            style={{ background: theme === 'light' ? 'white' : 'black', color: theme === 'light' ? 'black' : 'white' }}
+            style={{
+                background: theme === 'light' ? 'white' : 'black',
+                color: theme === 'light' ? 'black' : 'white',
+                display: 'flex',
+                justifyContent: 'center',
+                flexDirection: 'column',
+            }}
         >
             {header}
             {children}

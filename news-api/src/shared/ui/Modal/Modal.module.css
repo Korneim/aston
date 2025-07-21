@@ -40,3 +40,8 @@
     background-color: #8f0606;
     color: white;
 }
+
+.footer {
+    display: flex;
+    flex-direction: column;
+}

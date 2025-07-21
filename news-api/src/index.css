@@ -18,3 +18,7 @@ button {
 button:hover {
     border-color: #8f0606;
 }
+
+#root {
+    min-width: 100vw;
+}
