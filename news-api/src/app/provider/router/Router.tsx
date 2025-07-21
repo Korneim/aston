@@ -5,6 +5,7 @@ import { RouterProvider } from 'react-router/dom';
 import App from '../../App.tsx';
 import { AlbumsPage, Posts, UserPage, UsersPage, UserTodosPage } from '../../../pages';
 import { Todos } from '../../../entities';
+import { UserPostsPage } from '../../../pages/userPosts/ui/UserPostsPage.tsx';
 
 const { root, users, userTodos, userAlbums, post, posts, userPosts, albumPhotos, user, todos, albums } = routes;
 
@@ -56,7 +57,7 @@ export const Router: FC = () => {
 
                 {
                     path: userPosts,
-                    element: <div>userPosts</div>,
+                    element: <UserPostsPage />,
                 },
 
                 {

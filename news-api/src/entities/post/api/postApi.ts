@@ -9,12 +9,20 @@ export interface Post {
 
 export const postApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
-        getPosts: builder.query<Post[], { limit: number; page?: number }>({
-            query: ({ limit, page = 1 }) => ({
+        getPosts: builder.query<
+            Post[],
+            {
+                limit?: number;
+                userId?: number;
+                page?: number;
+            }
+        >({
+            query: (params) => ({
                 url: 'posts',
                 params: {
-                    _limit: limit,
-                    _page: page,
+                    _limit: params.limit,
+                    _page: params.page,
+                    userId: params.userId,
                 },
             }),
             providesTags: ['Post'],
