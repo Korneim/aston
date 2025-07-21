@@ -1,131 +1,135 @@
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    font-family:
+        'Segoe UI',
+        system-ui,
+        -apple-system,
+        sans-serif;
 }
 
 .loadingContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 200px;
-  color: #4a5568;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    color: #4a5568;
 }
 
 .spinner {
-  width: 50px;
-  height: 50px;
-  border: 5px solid #e2e8f0;
-  border-top-color: #4299e1;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin-bottom: 1rem;
+    width: 50px;
+    height: 50px;
+    border: 5px solid #e2e8f0;
+    border-top-color: #4299e1;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
 }
 
 @keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .header {
-  margin-bottom: 2.5rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e2e8f0;
 }
 
 .title {
-  font-size: 1.8rem;
-  color: #2d3748;
-  margin: 0;
-  font-weight: 700;
+    font-size: 1.8rem;
+    color: #2d3748;
+    margin: 0;
+    font-weight: 700;
 }
 
 .userId {
-  color: #4299e1;
+    color: #4299e1;
 }
 
 .postsCount {
-  color: #718096;
-  font-size: 0.9rem;
-  margin-top: 0.5rem;
+    color: #718096;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
 }
 
 .postsContainer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: space-between;
 }
 
 .postCard {
-  background: white;
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  transition: all 0.2s ease;
-  flex: 1 1 300px;
-  max-width: calc(33.333% - 1.5rem);
-  display: flex;
-  flex-direction: column;
-  min-width: 250px;
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+    flex: 1 1 300px;
+    max-width: calc(33.333% - 1.5rem);
+    display: flex;
+    flex-direction: column;
+    min-width: 250px;
 }
 
 .postCard:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 .postTitle {
-  font-size: 1.2rem;
-  color: #2d3748;
-  margin: 0 0 1rem 0;
-  line-height: 1.4;
+    font-size: 1.2rem;
+    color: #2d3748;
+    margin: 0 0 1rem 0;
+    line-height: 1.4;
 }
 
 .postBody {
-  color: #4a5568;
-  line-height: 1.6;
-  flex-grow: 1;
-  margin-bottom: 1.5rem;
+    color: #4a5568;
+    line-height: 1.6;
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
 }
 
 .postFooter {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-  color: #718096;
-  padding-top: 1rem;
-  border-top: 1px solid #edf2f7;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #718096;
+    padding-top: 1rem;
+    border-top: 1px solid #edf2f7;
 }
 
 .userBadge {
-  background: #ebf8ff;
-  color: #3182ce;
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
-  font-weight: 500;
+    background: #ebf8ff;
+    color: #3182ce;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 500;
 }
 
 @media (max-width: 900px) {
-  .postCard {
-    max-width: calc(50% - 1.5rem);
-  }
+    .postCard {
+        max-width: calc(50% - 1.5rem);
+    }
 }
 
 @media (max-width: 600px) {
-  .container {
-    padding: 1rem;
-  }
+    .container {
+        padding: 1rem;
+    }
 
-  .title {
-    font-size: 1.5rem;
-  }
+    .title {
+        font-size: 1.5rem;
+    }
 
-  .postCard {
-    max-width: 100%;
-    flex: 1 1 100%;
-  }
+    .postCard {
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
 }
