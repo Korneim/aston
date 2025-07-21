@@ -1,22 +1,9 @@
 import { baseApi } from '../../../shared';
-
-export interface Post {
-    id: number;
-    userId: number;
-    title: string;
-    body: string;
-}
+import type { Filters, Post } from '../model';
 
 export const postApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
-        getPosts: builder.query<
-            Post[],
-            {
-                limit?: number;
-                userId?: number;
-                page?: number;
-            }
-        >({
+        getPosts: builder.query<Post[], Filters>({
             query: (params) => ({
                 url: 'posts',
                 params: {
