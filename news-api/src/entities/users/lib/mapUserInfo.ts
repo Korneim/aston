@@ -1,4 +1,4 @@
-import type { User } from '../api/userApi.ts';
+import type { User } from '../model';
 
 export type MapUser = Omit<User, 'company' | 'address'> & {
     address: string;

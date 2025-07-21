@@ -4,12 +4,12 @@ import { Button } from '../../../shared';
 import { useSelector } from 'react-redux';
 import { selectAllUsers } from '../model';
 import { useGetUsersQuery } from '../api';
+import type { JSX } from 'react';
 
-export function Users() {
+export function Users(): JSX.Element {
     const { isLoading } = useGetUsersQuery();
     const navigate = useNavigate();
     const myData = useSelector(selectAllUsers);
-    console.log(myData, 'myData');
 
     if (isLoading) {
         return <div>Loading...</div>;
