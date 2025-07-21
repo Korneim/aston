@@ -1,6 +1,6 @@
 import { createEntityAdapter, createSlice, type EntityAdapter } from '@reduxjs/toolkit';
 import { userApi } from '../../api';
-import type { RootState } from '../../../../app/provider/store.ts';
+import type { RootState } from '../../../../app/provider';
 import type { User } from '../types.ts';
 
 const usersAdapter: EntityAdapter<User, number> = createEntityAdapter<User>({});
