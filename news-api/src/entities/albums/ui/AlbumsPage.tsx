@@ -4,6 +4,7 @@ import css from './AlbumsPage.module.css';
 import { useGetAlbumsQuery } from '../api';
 import { useNavigate } from 'react-router';
 import type { Album, AlbumsFilters } from '../model';
+import { ItemList } from '../../../shared/ui/ItemList/ItemList.tsx';
 
 export function Albums(): JSX.Element {
     const [albumsFilters, setAlbumsFiltersFilters] = useState<AlbumsFilters>({ limit: 100 });
@@ -40,20 +41,20 @@ export function Albums(): JSX.Element {
             </div>
 
             <h3>Список альбомов пользователей:</h3>
-            {albums.map((album: Album) => (
-                <div
-                    key={album.id}
-                    className={css.content}
-                    onClick={() => {
-                        navigate(`/users/${album.userId}/albums`);
-                    }}
-                >
-                    <div className={css.uIds}>
-                        <div style={{ color: 'red', width: '200px' }}>ID пользователя:{album.userId}</div>
-                        <div className={css.name}>Альбом: {album.title}</div>
+            <ItemList<Album>
+                items={albums}
+                keyExtractor={(album) => album.id}
+                className={css.list}
+                childrenClassName={css.content}
+                renderItem={(album) => (
+                    <div className={css.content} onClick={() => navigate(`/users/${album.userId}/albums`)}>
+                        <div className={css.uIds}>
+                            <div style={{ color: 'red', width: '200px' }}>ID пользователя: {album.userId}</div>
+                            <div className={css.name}>Альбом: {album.title}</div>
+                        </div>
                     </div>
-                </div>
-            ))}
+                )}
+            />
         </div>
     );
 }
