@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { type ReactNode } from 'react';
+import { type ReactNode, type ReactPortal } from 'react';
 import { createPortal } from 'react-dom';
 import css from './Modal.module.css';
 import { Header } from './Header/Header.tsx';
@@ -12,8 +12,8 @@ type Props = {
     children: ReactNode;
 };
 
-export function Modal({ isOpen, onClose, children }: Props) {
-    const handleClose = (event: React.MouseEvent) => {
+export function Modal({ isOpen, onClose, children }: Props): ReactPortal | null {
+    const handleClose = (event: React.MouseEvent): void => {
         event.stopPropagation();
     };
 

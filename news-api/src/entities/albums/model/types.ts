@@ -2,6 +2,7 @@ export interface AlbumsFilters {
     userId?: number;
     completed?: boolean;
     limit: number;
+    page?: number;
 }
 
 export interface Album {

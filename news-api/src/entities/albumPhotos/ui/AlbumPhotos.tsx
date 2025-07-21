@@ -1,5 +1,5 @@
 import { useParams } from 'react-router';
-import { useGetAlbumsPhotosQuery } from '../../albums/api/albumsApi.ts';
+import { useGetAlbumsPhotosQuery } from '../../albums/api';
 import css from './AlbumPhotos.module.css';
 
 export function AlbumPhotos() {

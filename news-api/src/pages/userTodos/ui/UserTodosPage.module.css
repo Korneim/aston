@@ -2,6 +2,7 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .title {
@@ -14,7 +15,7 @@
 .loading {
     text-align: center;
     font-size: 18px;
-    color: #5d6767;
+    color: #7f8c8d;
     margin-top: 50px;
 }
 
@@ -32,7 +33,7 @@
     transition:
         transform 0.2s,
         box-shadow 0.2s;
-    min-width: 500px;
+    min-width: 400px;
 }
 
 .todoCard:hover {
@@ -70,6 +71,6 @@
 
 .todoId {
     font-size: 12px;
-    color: #5d6767;
+    color: #95a5a6;
     text-align: right;
 }

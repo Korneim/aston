@@ -1,1 +1,1 @@
-export { useGetAlbumsQuery } from './albumsApi';
+export { useGetAlbumsQuery, useGetAlbumsPhotosQuery } from './albumsApi';

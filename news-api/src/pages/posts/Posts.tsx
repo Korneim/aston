@@ -1,8 +1,7 @@
-import { PostLengthFilter, usePosts } from '../../features';
+import { filterByLength, PostLengthFilter, usePosts } from '../../features';
 import { useMemo, useState } from 'react';
 import { withLoading } from '../../shared';
-import { PostList } from '../../widgets/PostList';
-import { filterByLength } from '../../features/PostLengthFilter/lib';
+import { PostList } from '../../widgets';
 
 export function Posts() {
     const { data: posts = [], isLoading } = usePosts();

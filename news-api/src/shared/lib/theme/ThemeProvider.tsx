@@ -1,7 +1,7 @@
-import { type FC, type PropsWithChildren, useCallback, useState } from 'react';
+import { type PropsWithChildren, useCallback, useState } from 'react';
 import { ThemeContext } from './useTheme';
 
-export const ThemeProvider: FC = ({ children }: PropsWithChildren) => {
+export const ThemeProvider = ({ children }: PropsWithChildren) => {
     const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
     const toggleTheme = useCallback(() => {

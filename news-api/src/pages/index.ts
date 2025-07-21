@@ -4,6 +4,7 @@ export { UsersPage } from './users';
 export { AlbumsPage } from './albums/ui';
 export { UserPage } from './user';
 export { MainPage } from './main';
+export { UserAlbumsPage } from './userAlbums';
 export * from './albums';
 export * from './userTodos';
 export * from './userPosts';

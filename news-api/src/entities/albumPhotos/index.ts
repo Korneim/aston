@@ -1,0 +1,1 @@
+export { AlbumPhotos } from './ui';
