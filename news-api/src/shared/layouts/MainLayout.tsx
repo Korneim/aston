@@ -9,6 +9,7 @@ export const MainLayout: FC = () => {
 
     return (
         <div
+            className={'aaaaa'}
             style={{
                 background: theme === 'light' ? 'white' : 'black',
                 color: theme === 'light' ? 'black' : 'white',
