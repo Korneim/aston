@@ -1,6 +1,8 @@
 import { useNavigate, useParams } from 'react-router';
 import { useGetAlbumsQuery } from '../../../entities';
 import css from './UserAlbumsPage.module.css';
+import { ItemList } from '../../../shared/ui/ItemList/ItemList.tsx';
+import type { Albums } from '../../../entities/albums/model';
 
 export function UserAlbumsPage() {
     const { id } = useParams();
@@ -31,21 +33,23 @@ export function UserAlbumsPage() {
                 <div className={css.albumsCount}>Всего альбомов: {list.length}</div>
             </header>
 
-            <div className={css.albumsContainer}>
-                {list.map((album) => (
-                    <div key={album.id} className={css.albumCard}>
-                        <div className={css.albumContent}>
-                            <div className={css.albumHeader}>
-                                <span className={css.albumId}>Альбом #{album.id}</span>
-                                <span className={css.viewPhotos} onClick={() => navigate(`/albums/${album.id}/photos`)}>
-                                    Просмотр фото →
-                                </span>
-                            </div>
-                            <h3 className={css.albumTitle}>{album.title}</h3>
+            <ItemList<Albums>
+                items={list}
+                keyExtractor={(album: Albums) => album.id}
+                className={css.albumsContainer}
+                childrenClassName={css.albumCard}
+                renderItem={(album) => (
+                    <div className={css.albumContent}>
+                        <div className={css.albumHeader}>
+                            <span className={css.albumId}>Альбом #{album.id}</span>
+                            <span className={css.viewPhotos} onClick={() => navigate(`/albums/${album.id}/photos`)}>
+                                Просмотр фото →
+                            </span>
                         </div>
+                        <h3 className={css.albumTitle}>{album.title}</h3>
                     </div>
-                ))}
-            </div>
+                )}
+            />
         </div>
     );
 }

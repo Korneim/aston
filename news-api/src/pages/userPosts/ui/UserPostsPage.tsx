@@ -1,6 +1,8 @@
 import { useParams } from 'react-router';
 import { useGetPostsQuery } from '../../../entities';
 import css from './UserPostPage.module.css';
+import { ItemList } from '../../../shared/ui/ItemList/ItemList.tsx';
+import type { Post } from '../../../entities/post/model';
 
 export function UserPostsPage() {
     const { id } = useParams();
@@ -30,16 +32,22 @@ export function UserPostsPage() {
             </header>
 
             <div className={css.postsContainer}>
-                {list.map((post) => (
-                    <article key={post.id} className={css.postCard}>
-                        <h3 className={css.postTitle}>{post.title}</h3>
-                        <p className={css.postBody}>{post.body}</p>
-                        <footer className={css.postFooter}>
-                            <span className={css.postId}>ID: {post.id}</span>
-                            <span className={css.userBadge}>User ID: {post.userId}</span>
-                        </footer>
-                    </article>
-                ))}
+                <ItemList<Post>
+                    items={list}
+                    keyExtractor={(post) => post.id}
+                    className={css.postsContainer}
+                    childrenClassName={css.postCard}
+                    renderItem={(post) => (
+                        <div key={post.id}>
+                            <h3 className={css.postTitle}>{post.title}</h3>
+                            <p className={css.postBody}>{post.body}</p>
+                            <footer className={css.postFooter}>
+                                <span className={css.postId}>ID: {post.id}</span>
+                                <span className={css.userBadge}>User ID: {post.userId}</span>
+                            </footer>
+                        </div>
+                    )}
+                />
             </div>
         </div>
     );
