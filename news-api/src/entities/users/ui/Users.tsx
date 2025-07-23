@@ -1,11 +1,15 @@
-import { useGetUsersQuery } from '../api';
 import css from './Users.module.css';
 import { useNavigate } from 'react-router';
 import { Button } from '../../../shared';
+import { useSelector } from 'react-redux';
+import { selectAllUsers } from '../model';
+import { useGetUsersQuery } from '../api';
 
 export function Users() {
-    const { data: user = [], isLoading } = useGetUsersQuery();
+    const { isLoading } = useGetUsersQuery();
     const navigate = useNavigate();
+    const myData = useSelector(selectAllUsers);
+    console.log(myData, 'myData');
 
     if (isLoading) {
         return <div>Loading...</div>;
@@ -13,8 +17,8 @@ export function Users() {
 
     return (
         <div className={css.wrapper}>
-            {<h3>Список пользователей:</h3>}
-            {user.map((user) => (
+            <h3>Список пользователей:</h3>
+            {myData.map((user) => (
                 <div key={user.id} className={css.content}>
                     <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
                         <div className={css.name}> {user.username}</div>

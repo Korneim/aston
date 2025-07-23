@@ -1,0 +1,118 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    font-family:
+        'Segoe UI',
+        system-ui,
+        -apple-system,
+        sans-serif;
+}
+
+.loadingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    color: #4a5568;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #e2e8f0;
+    border-top-color: #4299e1;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.header {
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #8f0606;
+}
+
+.title {
+    font-size: 1.8rem;
+    color: #2d3748;
+    margin: 0;
+    font-weight: 700;
+}
+
+.userId {
+    color: #4299e1;
+}
+
+.albumsCount {
+    color: #718096;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.albumsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: flex-start;
+}
+
+.albumCard {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    width: calc(33.33% - 1.5rem);
+    min-width: 300px;
+    flex-grow: 1;
+    cursor: pointer;
+}
+
+.albumCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.albumContent {
+    padding: 1.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.albumHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.albumId {
+    font-weight: 600;
+    color: #4a5568;
+    font-size: 0.9rem;
+}
+
+.viewPhotos {
+    color: #4299e1;
+    font-size: 0.85rem;
+    transition: transform 0.2s;
+}
+
+.albumCard:hover .viewPhotos {
+    transform: translateX(3px);
+}
+
+.albumTitle {
+    font-size: 1.1rem;
+    color: #2d3748;
+    margin: 0;
+    line-height: 1.4;
+}

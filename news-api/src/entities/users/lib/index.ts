@@ -1,0 +1,1 @@
+export { mapUserInfo } from './mapUserInfo';

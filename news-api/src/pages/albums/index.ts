@@ -1,1 +1,1 @@
-export { AlbumsPage } from './Albums';
+export * from './ui';

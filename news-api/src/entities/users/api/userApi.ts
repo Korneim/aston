@@ -11,12 +11,18 @@ type Address = {
     zipcode: string;
     geo: Geo;
 };
+type Company = {
+    bs: string;
+    catchPhrase: string;
+    name: string;
+};
 
-type User = {
+export type User = {
     id: number;
     name: string;
     username: string;
     email: string;
+    company: Company;
     phone?: string;
     website?: string;
     address: Address;
@@ -25,11 +31,22 @@ type User = {
 export const userApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
         getUsers: builder.query<User[], void>({
-            query: () => ({
-                url: 'users',
+            query: () => 'users',
+            providesTags: ['User'],
+        }),
+        getUserByID: builder.query<User, number>({
+            query: (id) => `users/${id}`,
+            providesTags: ['User'],
+        }),
+        updateUser: builder.mutation<User, Partial<User>>({
+            query: (id, ...data) => ({
+                url: `users/${id}`,
+                method: 'PATCH',
+                body: data,
             }),
+            invalidatesTags: ['User'],
         }),
     }),
 });
 
-export const { useGetUsersQuery } = userApi;
+export const { useGetUsersQuery, useGetUserByIDQuery, useUpdateUserMutation } = userApi;
