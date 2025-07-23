@@ -2,10 +2,17 @@ import { createBrowserRouter } from 'react-router';
 import type { FC } from 'react';
 import { routes } from './lib/routes.ts';
 import { RouterProvider } from 'react-router/dom';
-import { AlbumsPage, MainPage, Posts, UserPage, UserPostsPage, UsersPage, UserTodosPage } from '../../../pages';
-import { Todos } from '../../../entities';
-import { UserAlbumsPage } from '../../../pages/userAlbums/ui/UserAlbumsPage.tsx';
-import { AlbumPhotos } from '../../../entities/albumPhotos/ui/AlbumPhotos.tsx';
+import {
+    AlbumsPage,
+    MainPage,
+    Posts,
+    UserAlbumsPage,
+    UserPage,
+    UserPostsPage,
+    UsersPage,
+    UserTodosPage,
+} from '../../../pages';
+import { AlbumPhotos, Todos } from '../../../entities';
 import { MainLayout } from '../../../shared';
 
 const { root, users, userTodos, userAlbums, post, posts, userPosts, albumPhotos, user, todos, albums } = routes;

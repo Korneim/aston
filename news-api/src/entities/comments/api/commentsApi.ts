@@ -1,4 +1,4 @@
-import { baseApi } from '../../../shared';
+import { baseApi } from '../../../shared/api';
 import type { Comments } from '../model';
 import type { Filters } from '../model/types.ts';
 
