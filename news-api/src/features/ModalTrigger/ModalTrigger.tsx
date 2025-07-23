@@ -9,7 +9,7 @@ export const ModalTriggerButton = () => {
             <Button onClick={() => setIsOpen(true)} text="О проекте" />
             <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
                 <Modal.Header>
-                    <h2>Это хедер модального окна</h2>
+                    <h2>Это футер модального окна</h2>
                 </Modal.Header>
                 <Modal.Body>
                     <div>А это боди. Данный проект был создан в рамках обучения на платформе компании Aston</div>
