@@ -2,22 +2,25 @@ import { createBrowserRouter, Outlet } from 'react-router';
 import type { FC } from 'react';
 import { routes } from './lib/routes.ts';
 import { RouterProvider } from 'react-router/dom';
-import App from '../../App.tsx';
 import { AlbumsPage, Posts, UserPage, UserPostsPage, UsersPage, UserTodosPage } from '../../../pages';
 import { Todos } from '../../../entities';
 import { UserAlbumsPage } from '../../../pages/userAlbums/ui/UserAlbumsPage.tsx';
 import { AlbumPhotos } from '../../../entities/albumPhotos/ui/AlbumPhotos.tsx';
+import { AlbumsPage, Posts, UsersPage } from '../../../pages';
+import { UserPage } from '../../../pages/user/ui/UserPage.tsx';
+import { MainLayout } from '../../../shared';
+import { MainPage } from '../../../pages/main/ui/MainPage.tsx';
 
 const { root, users, userTodos, userAlbums, post, posts, userPosts, albumPhotos, user, todos, albums } = routes;
 
 export const Router: FC = () => {
     const router = createBrowserRouter([
         {
-            element: <Outlet />,
+            element: <MainLayout />,
             children: [
                 {
                     path: root,
-                    element: <App />,
+                    element: <MainPage />,
                 },
                 {
                     path: users,

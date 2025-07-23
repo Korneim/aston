@@ -1,16 +1,10 @@
-import { MainLayout, ThemeProvider } from '../shared';
-import { Footer, Header, UserTabs } from '../widgets';
-import { MainPage } from '../pages';
+import { ThemeProvider } from '../shared';
+import { Router } from './provider';
 
 function App() {
     return (
         <ThemeProvider>
-            <MainLayout>
-                <Header />
-                <UserTabs />
-                <MainPage />
-                <Footer />
-            </MainLayout>
+            <Router />
         </ThemeProvider>
     );
 }

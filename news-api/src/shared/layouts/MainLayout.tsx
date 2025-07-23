@@ -1,13 +1,10 @@
-import type { FC, ReactNode } from 'react';
+import type { FC } from 'react';
 import { useTheme } from '../lib';
+import { Footer, Header } from '../../widgets';
+import { Outlet } from 'react-router';
+import { UserTabs } from '../../widgets/UserTabs/UserTabs.tsx';
 
-type Props = {
-    header?: ReactNode;
-    children: ReactNode;
-    footer?: ReactNode;
-};
-
-export const MainLayout: FC<Props> = ({ children, header, footer }) => {
+export const MainLayout: FC = () => {
     const { theme } = useTheme();
 
     return (
@@ -18,12 +15,12 @@ export const MainLayout: FC<Props> = ({ children, header, footer }) => {
                 display: 'flex',
                 justifyContent: 'center',
                 flexDirection: 'column',
-                height: '100%',
             }}
         >
-            {header}
-            {children}
-            {footer}
+            <Header />
+            <UserTabs />
+            <Outlet />
+            <Footer />
         </div>
     );
 };
