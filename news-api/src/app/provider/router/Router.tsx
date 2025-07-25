@@ -2,12 +2,20 @@ import { createBrowserRouter } from 'react-router';
 import type { FC } from 'react';
 import { routes } from './lib/routes.ts';
 import { RouterProvider } from 'react-router/dom';
-import { AlbumsPage, Posts, UsersPage } from '../../../pages';
-import { UserPage } from '../../../pages/user/ui/UserPage.tsx';
+import {
+    AlbumsPage,
+    MainPage,
+    Posts,
+    UserAlbumsPage,
+    UserPage,
+    UserPostsPage,
+    UsersPage,
+    UserTodosPage,
+} from '../../../pages';
+import { AlbumPhotos, Todos } from '../../../entities';
 import { MainLayout } from '../../../shared';
-import { MainPage } from '../../../pages/main/ui/MainPage.tsx';
 
-const { root, users, userTodos, userAlbums, post, posts, userPosts, albumPhotos, user } = routes;
+const { root, users, userTodos, userAlbums, post, posts, userPosts, albumPhotos, user, todos, albums } = routes;
 
 export const Router: FC = () => {
     const router = createBrowserRouter([
@@ -29,12 +37,20 @@ export const Router: FC = () => {
 
                 {
                     path: userTodos,
-                    element: <div>userTodos</div>,
+                    element: <UserTodosPage />,
                 },
 
                 {
                     path: userAlbums,
-                    element: <div>userAlbums</div>,
+                    element: <UserAlbumsPage />,
+                },
+                {
+                    path: todos,
+                    element: <Todos />,
+                },
+                {
+                    path: albums,
+                    element: <AlbumsPage />,
                 },
 
                 {
@@ -49,12 +65,12 @@ export const Router: FC = () => {
 
                 {
                     path: userPosts,
-                    element: <div>userPosts</div>,
+                    element: <UserPostsPage />,
                 },
 
                 {
                     path: albumPhotos,
-                    element: <AlbumsPage />,
+                    element: <AlbumPhotos />,
                 },
             ],
         },

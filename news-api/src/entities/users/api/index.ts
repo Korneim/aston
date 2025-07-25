@@ -1,1 +1,1 @@
-export { useGetUsersQuery } from './userApi';
+export { useGetUsersQuery, useGetUserByIDQuery, useUpdateUserMutation, userApi } from './userApi';

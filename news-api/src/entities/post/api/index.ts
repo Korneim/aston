@@ -1,2 +1,1 @@
-export { postApi } from './postApi';
-export { useGetPostsQuery } from './postApi';
+export { postApi, useGetPostsQuery } from './postApi';

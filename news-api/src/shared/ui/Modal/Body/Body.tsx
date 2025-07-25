@@ -1,9 +1,5 @@
-import type { ReactNode } from 'react';
+import type { FC, PropsWithChildren } from 'react';
 
-type Props = {
-    children?: ReactNode;
-};
-
-export function Body({ children }: Props) {
+export const Body: FC = ({ children }: PropsWithChildren) => {
     return <div>{children}</div>;
-}
+};

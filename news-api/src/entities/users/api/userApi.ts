@@ -1,35 +1,25 @@
 import { baseApi } from '../../../shared';
-
-type Geo = {
-    lat: string;
-    lng: string;
-};
-type Address = {
-    street: string;
-    suite: string;
-    city: string;
-    zipcode: string;
-    geo: Geo;
-};
-
-type User = {
-    id: number;
-    name: string;
-    username: string;
-    email: string;
-    phone?: string;
-    website?: string;
-    address: Address;
-};
+import type { User } from '../model';
 
 export const userApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
         getUsers: builder.query<User[], void>({
-            query: () => ({
-                url: 'users',
+            query: () => 'users',
+            providesTags: ['User'],
+        }),
+        getUserByID: builder.query<User, number>({
+            query: (id) => `users/${id}`,
+            providesTags: ['User'],
+        }),
+        updateUser: builder.mutation<User, { id: number; data: Partial<User> }>({
+            query: ({ id, ...data }) => ({
+                url: `users/${id.toString()}`,
+                method: 'PATCH',
+                body: data,
             }),
+            invalidatesTags: ['User'],
         }),
     }),
 });
 
-export const { useGetUsersQuery } = userApi;
+export const { useGetUsersQuery, useGetUserByIDQuery, useUpdateUserMutation } = userApi;

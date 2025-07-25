@@ -1,9 +1,5 @@
-import type { ReactNode } from 'react';
+import type { JSX, PropsWithChildren } from 'react';
 
-type Props = {
-    children?: ReactNode;
-};
-
-export function Header({ children }: Props) {
+export function Header({ children }: PropsWithChildren): JSX.Element {
     return <div>{children}</div>;
 }

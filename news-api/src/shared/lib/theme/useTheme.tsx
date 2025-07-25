@@ -10,7 +10,7 @@ export const ThemeContext = createContext<ThemeContextProviderProps>({
     toggleTheme: () => {},
 });
 
-export const useTheme = () => {
+export const useTheme = (): { theme: string; toggleTheme: () => void } => {
     const { theme, toggleTheme } = useContext(ThemeContext);
 
     return { theme, toggleTheme };

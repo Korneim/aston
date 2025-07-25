@@ -1,7 +1,12 @@
 body {
     display: flex;
     min-width: 320px;
-    min-height: 100vh;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 button {
@@ -20,5 +25,5 @@ button:hover {
 }
 
 #root {
-    min-width: 100vw;
+    width: 100vw;
 }

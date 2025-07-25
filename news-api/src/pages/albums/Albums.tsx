@@ -1,8 +1,9 @@
 import userAlbum from '../../assets/pictures/albums.jpg';
 import { useParams } from 'react-router';
 import css from './Albums.module.css';
+import type { JSX } from 'react';
 
-export function AlbumsPage() {
+export function AlbumsPage(): JSX.Element {
     const { id } = useParams();
     return (
         <div>

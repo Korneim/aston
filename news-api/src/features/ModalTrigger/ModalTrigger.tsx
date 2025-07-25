@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { type JSX, useState } from 'react';
 import { Button, Modal } from '../../shared';
 
-export const ModalTriggerButton = () => {
+export const ModalTriggerButton = (): JSX.Element => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (

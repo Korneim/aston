@@ -1,18 +1,22 @@
-import css from './PostCard.module.css';
-import type { Post } from '../../../mock';
+import { CommentList } from '../../../widgets';
+import { useGetCommentIDQuery } from '../../comments';
+import type { JSX } from 'react';
+import type { Post } from '../model';
 
 type Props = {
     postInfo: Post;
 };
 
-export function PostCard({ postInfo }: Props) {
-    const { userId, title, body } = postInfo;
+export function PostCard({ postInfo }: Props): JSX.Element {
+    const { userId, title, body, id } = postInfo;
+    const { data, isLoading } = useGetCommentIDQuery(Number(id));
 
     return (
-        <div className={css.post}>
+        <>
             <h2>{title}</h2>
             <div>Автор: {userId}</div>
             <div>{body}</div>
-        </div>
+            <CommentList comments={data || []} isLoading={isLoading} />
+        </>
     );
 }

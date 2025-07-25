@@ -1,5 +1,5 @@
 import type { ComponentType } from 'react';
-import type { Post } from '../../../mock';
+import type { Post } from '../../../entities';
 
 interface WithLoadingProps {
     isLoading: boolean;
@@ -17,6 +17,8 @@ export function withLoading<P extends object>(Component: ComponentType<P>): Comp
                         height: '80vh',
                         justifyContent: 'center',
                         alignItems: 'center',
+                        color: ' #6c757d',
+                        fontSize: '1.2rem',
                     }}
                 >
                     Loading...

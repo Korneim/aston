@@ -1,17 +1,21 @@
 import { PostCard } from '../../entities';
 import css from './PostList.module.css';
-import type { Post } from '../../mock';
+import { ItemList } from '../../shared/ui/ItemList/ItemList.tsx';
+import type { JSX } from 'react';
+import type { Post } from '../../entities/post/model';
 
 type Props = {
     posts: Post[];
 };
 
-export function PostList({ posts }: Props) {
+export function PostList({ posts }: Props): JSX.Element {
     return (
-        <div className={css.list}>
-            {posts.map((el) => (
-                <PostCard key={el.title} postInfo={el} />
-            ))}
-        </div>
+        <ItemList<Post>
+            items={posts}
+            keyExtractor={(post: Post) => post.id}
+            renderItem={(post: Post) => <PostCard postInfo={post} />}
+            className={css.list}
+            childrenClassName={css.post}
+        />
     );
 }

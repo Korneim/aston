@@ -1,12 +1,13 @@
 .container {
     top: 0;
-    width: 100%;
+    width: 80%;
     border: #8f0606 1px solid;
     border-radius: 4px;
     display: flex;
     gap: 10px;
     margin: 0;
     justify-content: flex-end;
+    align-self: center;
 }
 
 .dark {
