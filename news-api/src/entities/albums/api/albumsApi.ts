@@ -28,9 +28,9 @@ export const albumsApi = baseApi.injectEndpoints({
             query: (id) => `albums/${id}`,
             providesTags: ['Album'],
         }),
-        updateAlbum: builder.mutation<Albums, Partial<Albums>>({
-            query: (id, ...data) => ({
-                url: `albums/${id}`,
+        updateAlbum: builder.mutation<Albums, { id: number; data: Partial<Albums> }>({
+            query: ({ id, ...data }) => ({
+                url: `albums/${id.toString()}`,
                 method: 'PATCH',
                 body: data,
             }),

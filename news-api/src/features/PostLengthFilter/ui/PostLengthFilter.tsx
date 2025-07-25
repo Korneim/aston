@@ -1,13 +1,13 @@
 import css from './PostLengthFilter.module.css';
-import type { ChangeEvent } from 'react';
+import type { ChangeEvent, JSX } from 'react';
 
 type Props = {
     titleLength: number | null;
     onTitleLengthChange: (length: number | null) => void;
 };
 
-export function PostLengthFilter({ titleLength, onTitleLengthChange }: Props) {
-    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+export function PostLengthFilter({ titleLength, onTitleLengthChange }: Props): JSX.Element {
+    const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
         const newLength = Number(event.target.value) || null;
         onTitleLengthChange(newLength);
     };

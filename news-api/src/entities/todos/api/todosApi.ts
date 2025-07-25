@@ -19,9 +19,9 @@ export const todosApi = baseApi.injectEndpoints({
             query: (id) => `todos/${id}`,
             providesTags: ['TODO'],
         }),
-        updateTodo: builder.mutation<Todos, Partial<Todos>>({
-            query: (id, ...data) => ({
-                url: `todos/${id}`,
+        updateTodo: builder.mutation<Todos, { id: number; data: Partial<Todos> }>({
+            query: ({ id, ...data }) => ({
+                url: `todos/${id.toString()}`,
                 method: 'PATCH',
                 body: data,
             }),

@@ -18,9 +18,9 @@ export const postApi = baseApi.injectEndpoints({
             query: (id) => `posts/${id}`,
             providesTags: ['Post'],
         }),
-        updatePost: builder.mutation<Post, Partial<Post>>({
-            query: (id, ...data) => ({
-                url: `posts/${id}`,
+        updatePost: builder.mutation<Post, { id: number; data: Partial<Post> }>({
+            query: ({ id, ...data }) => ({
+                url: `posts/${id.toString()}`,
                 method: 'PATCH',
                 body: data,
             }),

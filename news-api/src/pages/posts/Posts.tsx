@@ -1,9 +1,9 @@
 import { filterByLength, PostLengthFilter, usePosts } from '../../features';
-import { useMemo, useState } from 'react';
+import { type JSX, useMemo, useState } from 'react';
 import { withLoading } from '../../shared';
 import { PostList } from '../../widgets';
 
-export function Posts() {
+export function Posts(): JSX.Element {
     const { data: posts = [], isLoading } = usePosts();
     const [titleLengthFilter, setTitleLengthFilter] = useState<number | null>(null);
     const PostListWithLoading = withLoading(PostList);

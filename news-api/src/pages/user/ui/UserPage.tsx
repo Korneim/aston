@@ -4,6 +4,7 @@ import { type MapUser, mapUserInfo } from '../../../entities/users/lib/mapUserIn
 import css from './UserPage.module.css';
 import { ItemList } from '../../../shared/ui/ItemList/ItemList.tsx';
 import type { UserField } from '../model';
+import type { JSX } from 'react';
 
 const userFieldsRu: Record<string, string> = {
     id: 'ID',
@@ -16,7 +17,7 @@ const userFieldsRu: Record<string, string> = {
     company: 'Компания',
 };
 
-export function UserPage() {
+export function UserPage(): JSX.Element {
     const { id } = useParams();
     const { data, isLoading } = useGetUserByIDQuery(Number(id));
     console.log(data);
@@ -25,8 +26,8 @@ export function UserPage() {
         return <div className={css.loading}>Loading...</div>;
     }
     const mappedData: MapUser = mapUserInfo(data);
-    const userItems = Object.entries(mappedData).map(([key, value]) => ({
-        label: userFieldsRu[key as keyof typeof userFieldsRu] ?? key,
+    const userItems = Object.entries(mappedData).map(([key, value]): { label: string; value: string } => ({
+        label: userFieldsRu[key] ?? key,
         value: String(value),
     }));
 

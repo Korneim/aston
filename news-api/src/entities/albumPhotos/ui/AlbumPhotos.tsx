@@ -1,17 +1,21 @@
 import { useParams } from 'react-router';
 import { useGetAlbumsPhotosQuery } from '../../albums/api';
 import css from './AlbumPhotos.module.css';
+import type { JSX } from 'react';
 
-export function AlbumPhotos() {
+const replaceUrl = (url: string): string => {
+    return url?.replace(/(https:\/\/via\.placeholder\.com)(\/(\d+)\/([^/]+))/, 'https://placehold.co$2/FFF');
+};
+
+export function AlbumPhotos(): JSX.Element {
     const { id } = useParams();
 
     const { data: list = [], isLoading } = useGetAlbumsPhotosQuery({ limit: 100, id: Number(id) });
+
     if (isLoading) {
         return <div>Loading...</div>;
     }
-    const replaceUrl = (url: string) => {
-        return url?.replace(/(https:\/\/via\.placeholder\.com)(\/(\d+)\/([^/]+))/, 'https://placehold.co$2/FFF');
-    };
+
     return (
         <div className={css.container}>
             <h2 className={css.title}>Фотографии альбома #{id}</h2>

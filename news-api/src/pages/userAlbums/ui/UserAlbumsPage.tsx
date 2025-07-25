@@ -3,8 +3,9 @@ import { useGetAlbumsQuery } from '../../../entities';
 import css from './UserAlbumsPage.module.css';
 import { ItemList } from '../../../shared/ui/ItemList/ItemList.tsx';
 import type { Albums } from '../../../entities/albums/model';
+import type { JSX } from 'react';
 
-export function UserAlbumsPage() {
+export function UserAlbumsPage(): JSX.Element {
     const { id } = useParams();
     const navigate = useNavigate();
 
@@ -42,7 +43,12 @@ export function UserAlbumsPage() {
                     <div className={css.albumContent}>
                         <div className={css.albumHeader}>
                             <span className={css.albumId}>Альбом #{album.id}</span>
-                            <span className={css.viewPhotos} onClick={() => navigate(`/albums/${album.id}/photos`)}>
+                            <span
+                                className={css.viewPhotos}
+                                onClick={() => {
+                                    navigate(`/albums/${album.id}/photos`);
+                                }}
+                            >
                                 Просмотр фото →
                             </span>
                         </div>

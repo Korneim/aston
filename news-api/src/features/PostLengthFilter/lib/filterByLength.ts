@@ -1,6 +1,6 @@
 import type { Post } from '../../../entities/post/model';
 
-export function filterByLength(data: Post[], length: number | null) {
+export function filterByLength(data: Post[], length: number | null): Post[] {
     if (!length) {
         return data;
     }

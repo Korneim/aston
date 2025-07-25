@@ -47,7 +47,12 @@ export function Albums(): JSX.Element {
                 className={css.list}
                 childrenClassName={css.content}
                 renderItem={(album) => (
-                    <div className={css.content} onClick={() => navigate(`/users/${album.userId}/albums`)}>
+                    <div
+                        className={css.content}
+                        onClick={() => {
+                            navigate(`/users/${album.userId}/albums`);
+                        }}
+                    >
                         <div className={css.uIds}>
                             <div style={{ color: 'red', width: '200px' }}>ID пользователя: {album.userId}</div>
                             <div className={css.name}>Альбом: {album.title}</div>

@@ -11,9 +11,9 @@ export const userApi = baseApi.injectEndpoints({
             query: (id) => `users/${id}`,
             providesTags: ['User'],
         }),
-        updateUser: builder.mutation<User, Partial<User>>({
-            query: (id, ...data) => ({
-                url: `users/${id}`,
+        updateUser: builder.mutation<User, { id: number; data: Partial<User> }>({
+            query: ({ id, ...data }) => ({
+                url: `users/${id.toString()}`,
                 method: 'PATCH',
                 body: data,
             }),

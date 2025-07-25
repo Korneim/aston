@@ -29,7 +29,9 @@ export function Users(): JSX.Element {
                             <div className={css.name}>{user.username}</div>
                             <Button
                                 className={css.id}
-                                onClick={() => navigate(`/users/${user.id}`)}
+                                onClick={() => {
+                                    navigate(`/users/${user.id}`);
+                                }}
                                 text={`Перейти к пользователю с ID ${user.id}`}
                             />
                         </div>

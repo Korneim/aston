@@ -20,9 +20,9 @@ export const commentsApi = baseApi.injectEndpoints({
             query: (id) => `post/${id}/comments`,
             providesTags: ['Comment'],
         }),
-        updateComment: builder.mutation<Comments, Partial<Comments>>({
-            query: (id, ...data) => ({
-                url: `comments/${id}`,
+        updateComment: builder.mutation<Comments, { id: number; data: Partial<Comments> }>({
+            query: ({ id, ...data }) => ({
+                url: `comments/${id.toString()}`,
                 method: 'PATCH',
                 body: data,
             }),

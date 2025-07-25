@@ -3,8 +3,9 @@ import { useGetTodosQuery } from '../../../entities';
 import css from './UserTodosPage.module.css';
 import { ItemList } from '../../../shared/ui/ItemList/ItemList.tsx';
 import type { Todos } from '../../../entities/todos/model';
+import type { JSX } from 'react';
 
-export function UserTodosPage() {
+export function UserTodosPage(): JSX.Element {
     const { id } = useParams();
     const filters = {
         limit: 100,

@@ -3,8 +3,9 @@ import { useGetPostsQuery } from '../../../entities';
 import css from './UserPostPage.module.css';
 import { ItemList } from '../../../shared/ui/ItemList/ItemList.tsx';
 import type { Post } from '../../../entities/post/model';
+import type { JSX } from 'react';
 
-export function UserPostsPage() {
+export function UserPostsPage(): JSX.Element {
     const { id } = useParams();
     const filters = {
         limit: 100,
